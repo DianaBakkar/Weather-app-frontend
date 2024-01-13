@@ -41,12 +41,11 @@ const WeatherGeo: React.FC = () => {
       <button onClick={getWeatherData}>Get Weather by GeoLocation</button>
       {weatherData ? (
         <div>
-          <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp} °F</p>
-          <p>Current Weather Status: {weatherData.weather[0].description}</p>
-          <p>Humidity: {weatherData.main.humidity} %</p>
-          <p>Wind Speed: {weatherData.wind.speed} mph</p>
-          <p>Cloudiness: {weatherData.clouds.all} %</p>
+          <h2>Weather for current Location </h2>
+          <p>Temperature: {weatherData.temperature} °F</p>
+          <p>Humidity: {weatherData.humidity} %</p>
+          <p>Wind Speed: {weatherData.wind_speed} mph</p>
+          <p>Cloudiness: {weatherData.cloudiness} %</p>
         </div>
       ) : (
         <p>Click the button to get weather data</p>

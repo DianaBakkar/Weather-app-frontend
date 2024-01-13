@@ -28,7 +28,7 @@ const WeatherForecast: React.FC = () => {
       const data: WeatherDataForecast = await response.json();
       setWeatherData({
         ...data,
-        list: data.list.slice(0, days * 8) // Display only the forecast for the first 'days' days
+        list: data.list.slice(0, days * 8) 
       });
       setShowForecast(true);
     } catch (error) {

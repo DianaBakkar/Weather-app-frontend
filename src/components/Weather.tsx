@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { WeatherData } from '../types/types';
@@ -10,7 +9,9 @@ const Weather: React.FC = () => {
   const getWeatherData = async () => {
     try {
       const response = await axios.get<WeatherData>(`http://localhost:3000/weather/${city}`);
+      console.log('Weather Data Response:', response.data);
       setWeatherData(response.data);
+
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
@@ -28,12 +29,11 @@ const Weather: React.FC = () => {
 
       {weatherData && (
         <div>
-          <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp} °F</p>
-          <p>Current Weather Status: {weatherData.weather[0].description}</p>
-          <p>Humidity:{weatherData.main.humidity} %</p>
-          <p>Wind Speed:{weatherData.wind.speed} mph</p>
-          <p>Cloudiness:{weatherData.clouds.all} %</p>
+          <h2>Weather in {city}</h2>
+          <p>Temperature: {weatherData.temperature} °F</p>
+          <p>Humidity: {weatherData.humidity} %</p>
+          <p>Wind Speed: {weatherData.wind_speed} mph</p>
+          <p>Cloudiness: {weatherData.cloudiness} %</p>
         </div>
       )}
     </div>
